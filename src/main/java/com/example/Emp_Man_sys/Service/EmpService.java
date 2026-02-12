@@ -4,6 +4,8 @@ import com.example.Emp_Man_sys.Entity.DeptEntity;
 import com.example.Emp_Man_sys.Entity.EmpEntity;
 import com.example.Emp_Man_sys.Repository.DeptRepo;
 import com.example.Emp_Man_sys.Repository.EmpRepo;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +32,18 @@ public class EmpService {
     public EmpEntity getByid(Long id){
         return empRepo.findById(id).orElseThrow(()->new RuntimeException("Employee not found!"));
     }
+
+    public List<EmpEntity>findempsalarygreaterthan(Double salary){
+//        List<EmpEntity> fesgt = empRepo.findBySalaryGreaterThan(salary).stream()
+//                .filter(x -> x.getSalary() > salary)
+//                .toList();
+//        return fesgt;
+            return empRepo.findBySalaryGreaterThan(salary);
+    }
+    public Page<EmpEntity> getAllEmployeesWithPagination(Pageable pageable) {
+        return empRepo.findAll(pageable);
+    }
+
 
 
 }

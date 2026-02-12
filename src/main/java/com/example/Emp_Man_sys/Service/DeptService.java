@@ -29,7 +29,7 @@ public class DeptService {
     }
 
     public DeptEntity getById(Long id){
-        return deptRepo.getById(id);
+        return deptRepo.findById(id).orElseThrow(()->new RuntimeException("Department Not Found!"));
     }
 
 }

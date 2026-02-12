@@ -1,12 +1,15 @@
 package com.example.Emp_Man_sys.Entity;
 
-import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
-@Table(name="department")
+@Table(name="departments")
 public class DeptEntity {
 
     @Id
@@ -15,5 +18,10 @@ public class DeptEntity {
 
     @Column(nullable = false)
     private String deptName;
+
+    @OneToMany(mappedBy = "department")
+    @JsonIgnore
+    private List<EmpEntity> employees;
+
 
 }
