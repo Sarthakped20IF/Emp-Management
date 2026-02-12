@@ -1,10 +1,7 @@
 package com.example.Emp_Man_sys.Entity;
 
 import com.sun.istack.NotNull;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
@@ -13,6 +10,7 @@ import lombok.Data;
 public class DeptEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long dept_id;
 
     @Column(nullable = false)

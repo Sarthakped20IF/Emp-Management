@@ -2,11 +2,14 @@ package com.example.Emp_Man_sys.Entity;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name="employee")
+@Data
 public class EmpEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long emp_id;
     @Column(nullable = false)
     private String empName;
