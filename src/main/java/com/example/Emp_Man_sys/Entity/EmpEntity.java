@@ -1,9 +1,11 @@
 package com.example.Emp_Man_sys.Entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -15,16 +17,21 @@ public class EmpEntity {
     private Long emp_id;
     @Column(nullable = false)
     private String empName;
-    @Column(nullable = false)
-    private String email;
+//    @Column(nullable = false)
+    private String Wemail;
     private Double salary;
+    // we dont need @Temporal LocalDate has it inbuild
+    private LocalDate Joined_on = LocalDate.now();
+
 
     @ManyToOne (fetch = FetchType.LAZY)// this avoids N+1 problem
     @JoinColumn(name="dept_id")
     private DeptEntity department;
 
 
+
     @OneToOne(mappedBy = "employee",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnore
     private UserEntity userEntity;
 
 //    @ManyToMany

@@ -13,8 +13,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/{emp_id}")
-    public UserEntity createUser(@PathVariable Long emp_id,
+    @PostMapping("/create-user")
+    public UserEntity createUser(@RequestParam Long emp_id,
                                  @RequestBody UserEntity user) {
         return userService.createUser(emp_id, user);
     }

@@ -84,5 +84,14 @@ public class EmpController {
     }
 
 
+    @GetMapping("/sorted")
+    public List<EmpEntity> getEmployeesSorted(
+            @RequestParam String field
+//            @RequestParam(defaultValue = "asc") String direction
+    ) {
+        return empService.getAllEmployeesSortedDesc(field);
+    }
+
+
 
 }

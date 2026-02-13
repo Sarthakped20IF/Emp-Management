@@ -43,7 +43,7 @@ public class DeptController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @GetMapping("/empId/{emp_id}")
+    @GetMapping("/{dept_Id}")
     public ResponseEntity<?> getDeptById(@PathVariable Long dept_Id){
         DeptEntity dept = deptService.getById(dept_Id);
         try {
