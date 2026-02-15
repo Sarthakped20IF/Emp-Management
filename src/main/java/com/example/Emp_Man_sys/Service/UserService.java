@@ -6,10 +6,12 @@ import com.example.Emp_Man_sys.Repository.EmpRepo;
 import com.example.Emp_Man_sys.Repository.UserRepo;
 import org.springframework.boot.webmvc.autoconfigure.WebMvcProperties;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
 @Service
+@Transactional
 public class UserService {
 
     private final UserRepo userRepo;

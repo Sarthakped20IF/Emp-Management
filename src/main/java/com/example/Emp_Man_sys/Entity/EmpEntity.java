@@ -26,6 +26,7 @@ public class EmpEntity {
 
     @ManyToOne (fetch = FetchType.LAZY)// this avoids N+1 problem
     @JoinColumn(name="dept_id")
+    @JsonIgnore
     private DeptEntity department;
 
 
@@ -40,6 +41,8 @@ public class EmpEntity {
 //            joinColumns = @JoinColumn(name = "emp_id"),
 //            inverseJoinColumns = @JoinColumn(name = "proj_id")
 //    )
-//    private Set<ProjEntity> projects;
+    @OneToMany (mappedBy = "emp",fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<EmpProjEntity> empProjects;
 
 }

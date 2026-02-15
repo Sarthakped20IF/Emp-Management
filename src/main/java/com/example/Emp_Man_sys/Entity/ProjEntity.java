@@ -1,5 +1,6 @@
 package com.example.Emp_Man_sys.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ public class ProjEntity {
     private Long proj_id;
     @Column(nullable = false)
     private String projName;
-//    @ManyToMany(mappedBy = "projects")
-//    private Set<EmpEntity> employees;
+    @OneToMany(mappedBy = "projects",fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<EmpProjEntity> empProjects;
 }

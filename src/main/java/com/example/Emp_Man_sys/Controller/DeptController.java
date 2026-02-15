@@ -1,7 +1,7 @@
 package com.example.Emp_Man_sys.Controller;
 
 import com.example.Emp_Man_sys.Entity.DeptEntity;
-import com.example.Emp_Man_sys.Entity.EmpEntity;
+//import com.example.Emp_Man_sys.Entity.EmpEntity;
 import com.example.Emp_Man_sys.Service.DeptService;
 import com.example.Emp_Man_sys.Service.EmpService;
 import org.springframework.http.HttpStatus;
