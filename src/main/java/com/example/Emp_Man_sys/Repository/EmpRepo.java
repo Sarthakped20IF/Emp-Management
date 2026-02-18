@@ -13,3 +13,12 @@ public interface EmpRepo extends JpaRepository<EmpEntity,Long> {
     List<EmpEntity> findBySalaryGreaterThan(Double salary);
 
 }
+
+//
+//package com.example.ems.Repository;
+//
+//import com.example.ems.Entity.EmpEntity;
+//import org.springframework.data.jpa.repository.JpaRepository;
+//
+//public interface EmpRepo extends JpaRepository<EmpEntity, Long> {
+//}

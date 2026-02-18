@@ -46,3 +46,31 @@ public class EmpEntity {
     private Set<EmpProjEntity> empProjects;
 
 }
+
+
+//
+//
+//package com.example.ems.Entity;
+//
+//import jakarta.persistence.*;
+//import lombok.AllArgsConstructor;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+//
+//@Entity
+//@Table(name = "employees")
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//public class EmpEntity {
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+//
+//    private String empName;
+//
+//    private String email;
+//
+//    private Long departmentId;   // Foreign key reference only
+//}

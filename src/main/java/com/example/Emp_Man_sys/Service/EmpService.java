@@ -30,7 +30,7 @@ public class EmpService {
         empEntity.setWemail(generatedWorkEmail); // set the value of Wemail by calling the generateWemail method
         return empRepo.save(empEntity);
     }
-//  this method helps to create work email of employees
+    //  this method helps to create work email of employees
     private String generateWemail(String empName) {
         return empName.trim().toLowerCase().replaceAll(" ","")+"@adtech.com";
     }
@@ -49,13 +49,13 @@ public class EmpService {
 //                .filter(x -> x.getSalary() > salary)
 //                .toList();
 //        return fesgt;
-            return empRepo.findBySalaryGreaterThan(salary);
+        return empRepo.findBySalaryGreaterThan(salary);
     }
-//    sorting
+    //    sorting
     public List<EmpEntity> getAllEmployeesSortedDesc(String field) {
         return empRepo.findAll(Sort.by(Sort.Direction.DESC, field));
     }
-//    Pagination
+    //    Pagination
     public Page<EmpEntity> getAllEmployeesWithPagination(Pageable pageable) {
         return empRepo.findAll(pageable);
     }

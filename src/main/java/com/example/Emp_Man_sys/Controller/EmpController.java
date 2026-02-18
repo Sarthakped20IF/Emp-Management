@@ -1,6 +1,7 @@
 package com.example.Emp_Man_sys.Controller;
 
 //import com.example.Emp_Man_sys.Entity.DeptEntity;
+import com.example.Emp_Man_sys.DTOS.EmpResDto;
 import com.example.Emp_Man_sys.Entity.EmpEntity;
 import com.example.Emp_Man_sys.Service.DeptService;
 import com.example.Emp_Man_sys.Service.EmpService;
@@ -61,6 +62,13 @@ public class EmpController {
             return new ResponseEntity<>("Something went Wrong!",HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+//    @GetMapping("/fc/{id}")
+//    public ResponseEntity<EmpResDto> getEmployee(@PathVariable Long id) {
+//
+//        return ResponseEntity.ok(
+//                empService.getEmployeeWithDepartment(id)
+//        );
+//    } not worked due to monolithic arhitechture
 
     @GetMapping("/getempwithsalarygt")
     public ResponseEntity<?>findempsalarygreaterthan(@RequestParam Double salary){
@@ -95,3 +103,38 @@ public class EmpController {
 
 
 }
+
+
+
+
+
+//package com.example.ems.Controller;
+//
+//import com.example.Emp_Man_sys.DTOS.EmpResDto;
+////import com.example.ems.Dtos.EmpResponseDto;
+////import com.example.Emp_Man_sys.Entity.EmpEntity;
+////import com.example.ems.Service.EmpService;
+//import com.example.Emp_Man_sys.Service.EmpService;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.web.bind.annotation.*;
+//
+//@RestController
+//@RequestMapping("/api/employees")
+//@RequiredArgsConstructor
+//public class EmpController {
+//
+//    private final EmpService empService;
+//
+//    @PostMapping
+//    public ResponseEntity<EmpEntity> createEmployee(
+//            @RequestBody EmpEntity employee) {
+//        return ResponseEntity.ok(empService.saveEmployee(employee));
+//    }
+//
+//    @GetMapping("/{id}")
+//    public ResponseEntity<EmpResDto> getEmployeeById(
+//            @PathVariable Long id) {
+//        return ResponseEntity.ok(empService.getEmployeeById(id));
+//    }
+//}

@@ -4,7 +4,7 @@ import com.example.Emp_Man_sys.Entity.EmpEntity;
 import com.example.Emp_Man_sys.Entity.UserEntity;
 import com.example.Emp_Man_sys.Repository.EmpRepo;
 import com.example.Emp_Man_sys.Repository.UserRepo;
-import org.springframework.boot.webmvc.autoconfigure.WebMvcProperties;
+//import org.springframework.boot.webmvc.autoconfigure.WebMvcProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

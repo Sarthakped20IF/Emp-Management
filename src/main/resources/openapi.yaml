@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: Employee Management API
+  description: API for managing employees
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8080
+
+paths:
+  /employees:
+    get:
+      summary: Get all employees
+      operationId: getAllEmployees
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+
+    post:
+      summary: Create employee
+      operationId: createEmployee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Employee'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+
+components:
+  schemas:
+    Employee:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        email:
+          type: string
+        departmentId:
+          type: integer
+          format: int64
