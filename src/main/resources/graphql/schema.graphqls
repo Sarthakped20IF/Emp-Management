@@ -1,0 +1,25 @@
+type Employee {
+    id: ID
+    name: String
+}
+type Project {
+    projId: ID
+    projName: String
+}
+
+type EmployeeProject {
+    employeeId: ID
+    projectId: ID
+#    assignedDate: String
+}
+
+type Query {
+    getProjectsByEmployee(employeeId: ID!): [Project]
+    getProject(id: ID!): Project
+}
+type Mutation {
+    createProject(projectName: String!): Project
+    assignEmployeeToProject(employeeId: ID!, projectId: ID!): EmployeeProject
+    removeEmployeeFromProject(employeeId: ID!, projectId: ID!): String
+}
+

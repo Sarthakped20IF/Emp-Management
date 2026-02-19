@@ -13,7 +13,8 @@ import java.util.Set;
 public class ProjEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long proj_id;
+    @Column(name = "proj_id")
+    private Long projId;
     @Column(nullable = false)
     private String projName;
     @OneToMany(mappedBy = "projects",fetch = FetchType.LAZY)

@@ -14,7 +14,8 @@ import java.util.Set;
 public class EmpEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long emp_id;
+    @Column(name = "emp_id")
+    private Long empId;
     @Column(nullable = false)
     private String empName;
 //    @Column(nullable = false)

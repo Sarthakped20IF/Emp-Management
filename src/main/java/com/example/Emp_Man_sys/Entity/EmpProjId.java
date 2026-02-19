@@ -33,6 +33,7 @@
 //from repo
 package com.example.Emp_Man_sys.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.Embedded;
 import lombok.Data;
@@ -40,13 +41,17 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.Objects;
-
 @Data
 @Embeddable
 @EqualsAndHashCode
 public class EmpProjId implements Serializable {
-    private Long emp_id;
-    private Long proj_id;
+
+    @Column(name = "emp_id")
+    private Long empId;
+
+    @Column(name = "proj_id")
+    private Long projId;
+}
 
 
 //    @Override
@@ -61,4 +66,3 @@ public class EmpProjId implements Serializable {
 //    public int hashCode(){
 //        return Objects.hash(emp_id,proj_id);
 //    }
-}

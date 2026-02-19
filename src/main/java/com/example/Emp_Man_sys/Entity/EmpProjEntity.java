@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @Table(name = "emp_proj")
@@ -46,18 +48,20 @@ public class EmpProjEntity {
     private EmpProjId id;
 
     @ManyToOne
-    @MapsId("emp_id")
+    @MapsId("empId")
     @JoinColumn(name = "emp_id")
     @JsonIgnore
     private EmpEntity emp;
 
 
     @ManyToOne
-    @MapsId("proj_id")
+    @MapsId("projId")
     @JoinColumn(name = "proj_id")
     @JsonIgnore
     private ProjEntity projects;
 
+    private LocalDate AssignedDate;
 
     private String role;
+
 }

@@ -45,8 +45,8 @@ public class EmpProjectService {
                 .orElseThrow(() -> new RuntimeException("Project Not Found"));
 
         EmpProjId id = new EmpProjId();
-        id.setEmp_id(emp_id);
-        id.setProj_id(proj_id);
+        id.setEmpId(emp_id);
+        id.setProjId(proj_id);
 
         if (empProjRepo.existsById(id)) {
             throw new RuntimeException("Employee already assigned to this project");
