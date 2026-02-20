@@ -7,6 +7,7 @@ import com.example.Emp_Man_sys.Entity.ProjEntity;
 import com.example.Emp_Man_sys.Repository.EmpProjRepo;
 import com.example.Emp_Man_sys.Repository.EmpRepo;
 import com.example.Emp_Man_sys.Repository.ProjRepo;
+import com.example.Emp_Man_sys.exception.EmployeeNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,7 +40,7 @@ public class EmpProjectService {
 //
 //        return empProjRepo.save(empProject);
         EmpEntity emp = empRepo.findById(emp_id)
-                .orElseThrow(() -> new RuntimeException("Employee Not Found"));
+                .orElseThrow(() -> new EmployeeNotFoundException("Employee Not Found with id :"+emp_id));
 
         ProjEntity project = projRepo.findById(proj_id)
                 .orElseThrow(() -> new RuntimeException("Project Not Found"));

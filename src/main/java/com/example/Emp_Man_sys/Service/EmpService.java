@@ -4,6 +4,8 @@ import com.example.Emp_Man_sys.Entity.DeptEntity;
 import com.example.Emp_Man_sys.Entity.EmpEntity;
 import com.example.Emp_Man_sys.Repository.DeptRepo;
 import com.example.Emp_Man_sys.Repository.EmpRepo;
+import com.example.Emp_Man_sys.exception.DepartmentNotFound;
+import com.example.Emp_Man_sys.exception.EmployeeNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -23,7 +25,7 @@ public class EmpService {
     }
 
     public EmpEntity createEmp(Long dept_id , EmpEntity empEntity){
-        DeptEntity dept = deptRepo.findById(dept_id).orElseThrow(()->new RuntimeException("Department Not found !"));
+        DeptEntity dept = deptRepo.findById(dept_id).orElseThrow(()->new DepartmentNotFound("Department Not found !"));
 
         empEntity.setDepartment(dept);
         String generatedWorkEmail = generateWemail(empEntity.getEmpName());
@@ -41,7 +43,7 @@ public class EmpService {
     }
 
     public EmpEntity getByid(Long id){
-        return empRepo.findById(id).orElseThrow(()->new RuntimeException("Employee not found!"));
+        return empRepo.findById(id).orElseThrow(()->new EmployeeNotFoundException("Employee not found with id: "+id));
     }
 
     public List<EmpEntity>findempsalarygreaterthan(Double salary){
